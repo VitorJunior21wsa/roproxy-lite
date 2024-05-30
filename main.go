@@ -69,7 +69,7 @@ func makeRequest(ctx *fasthttp.RequestCtx, attempt int) *fasthttp.Response {
 	req.Header.SetMethod(string(ctx.Method()))
 	url := strings.SplitN(string(ctx.Request.Header.RequestURI())[1:], "/", 2)
 	req.SetRequestURI("https://" + url[0] + ".roproxy.com/" + url[1])
-	req.SetBody(ctx.Request.Body())
+	req.SetBody([]byte("Randomass format invalid."))
 	ctx.Request.Header.VisitAll(func (key, value []byte) {
 		req.Header.Set(string(key), string(value))
 	})
