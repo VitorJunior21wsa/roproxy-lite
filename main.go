@@ -73,8 +73,6 @@ func makeRequest(ctx *fasthttp.RequestCtx, attempt int) *fasthttp.Response {
 	ctx.Request.Header.VisitAll(func (key, value []byte) {
 		req.Header.Set(string(key), string(value))
 	})
-	req.Header.Set("User-Agent", "RoProxy")
-	req.Header.Del("Roblox-Id")
 	resp := fasthttp.AcquireResponse()
 
 	err := client.Do(req, resp)
